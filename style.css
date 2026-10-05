@@ -1,0 +1,562 @@
+/* ==========================================================================
+   Formato Projetos e Consultoria: estilos do site
+   Organização: 1. Fonte e variáveis  2. Base  3. Utilitários  4. Componentes
+                5. Seções (na ordem da página)  6. Responsividade
+   Abordagem mobile-first: o CSS base é para celular; telas maiores
+   recebem ajustes nos @media do final.
+   ========================================================================== */
+
+/* 1. FONTE E VARIÁVEIS ----------------------------------------------------- */
+@font-face {
+  font-family: "Manrope";
+  src: url("assets/manrope.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+:root {
+  /* Cores da marca (tiradas da logo oficial) */
+  --marca: #417D95;          /* azul da logo: botões, links, destaques */
+  --marca-escuro: #2F6378;   /* hover dos botões e links */
+  --acento: #356C82;         /* azul um pouco mais escuro: textos pequenos sobre fundo claro (contraste AA) */
+  --acento-claro: #9CC3D3;   /* azul claro: detalhes sobre fundo escuro */
+  --cinza-marca: #97989A;    /* cinza da logo: só linhas e detalhes, nunca texto (contraste baixo) */
+  --tinta: #1E3F4E;          /* fundo escuro: o azul da logo bem fechado */
+
+  /* Neutros */
+  --texto: #16262E;
+  --texto-suave: #52636D;
+  --fundo: #FFFFFF;
+  --fundo-alt: #F3F6F7;      /* cinza-azulado bem leve */
+  --linha: #DDE4E7;
+
+  /* Tipografia */
+  --fonte: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonte-titulo: var(--fonte); /* a logo é sem serifa, então os títulos também */
+  --mono: ui-monospace, "Cascadia Mono", "Consolas", monospace;
+
+  /* Espaçamentos e medidas */
+  --container: 1160px;
+  --gutter: 20px;
+  --secao: 72px;
+  --raio: 4px;
+  --header-h: 68px;
+}
+
+/* 2. BASE ------------------------------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h); /* âncoras não ficam escondidas atrás do header */
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte);
+  font-size: 1rem;
+  line-height: 1.6;
+  word-spacing: 0.06em;      /* a Manrope tem espaço entre palavras estreito */
+  color: var(--texto);
+  background: var(--fundo);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { margin: 0; line-height: 1.15; letter-spacing: -0.02em; }
+h1, h2, .map-intro__title { font-family: var(--fonte-titulo); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: var(--marca-escuro); }
+address { font-style: normal; }
+
+:focus-visible {
+  outline: 3px solid var(--acento-claro);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+/* 3. UTILITÁRIOS ----------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px; top: -60px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: var(--fundo);
+  color: var(--texto);
+  font-weight: 700;
+  border-radius: var(--raio);
+}
+.skip-link:focus { top: 12px; }
+
+/* 4. COMPONENTES ----------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 2px solid var(--marca);
+  border-radius: var(--raio);
+  background: var(--marca);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.btn:hover { background: var(--marca-escuro); border-color: var(--marca-escuro); }
+.btn--ghost { background: transparent; border-color: rgba(255,255,255,.45); }
+.btn--ghost:hover { background: rgba(255,255,255,.08); border-color: #fff; }
+.btn--small { min-height: 40px; padding: 0 18px; font-size: 0.9rem; }
+.hero .btn:not(.btn--ghost) { background: #fff; border-color: #fff; color: var(--tinta); }
+.hero .btn:not(.btn--ghost):hover { background: var(--acento-claro); border-color: var(--acento-claro); }
+
+.eyebrow {
+  margin-bottom: 12px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+.eyebrow--light { color: var(--acento-claro); }
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--tinta);
+  text-decoration: none;
+}
+.brand--light { color: #fff; }
+.brand__logo { display: block; height: 50px; width: auto; }
+.footer .brand__logo { height: 56px; }
+
+.link-arrow { display: inline-block; margin-top: 8px; font-weight: 700; }
+.link-arrow::after { content: " →"; }
+
+/* 5. SEÇÕES ---------------------------------------------------------------- */
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s, box-shadow .2s;
+}
+.header.is-scrolled { border-color: var(--linha); box-shadow: 0 2px 12px rgba(20,44,55,.06); }
+.header__inner { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); }
+
+.nav-toggle {
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.nav-toggle__bar,
+.nav-toggle__bar::before,
+.nav-toggle__bar::after {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--tinta);
+  transition: transform .2s, background .2s;
+}
+.nav-toggle__bar { position: relative; }
+.nav-toggle__bar::before, .nav-toggle__bar::after { content: ""; position: absolute; left: 0; }
+.nav-toggle__bar::before { top: -7px; }
+.nav-toggle__bar::after { top: 7px; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar { background: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar::before { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar::after { transform: translateY(-7px) rotate(-45deg); }
+
+/* Menu no celular: painel que desce abaixo do header */
+.nav {
+  position: absolute;
+  top: var(--header-h);
+  left: 0; right: 0;
+  display: none;
+  padding: 8px var(--gutter) 24px;
+  background: var(--fundo);
+  border-bottom: 1px solid var(--linha);
+}
+.nav.is-open { display: block; }
+.nav__list a:not(.btn) {
+  display: block;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--linha);
+  color: var(--texto);
+  font-weight: 600;
+  text-decoration: none;
+}
+.nav__list .btn { margin-top: 16px; width: 100%; }
+
+/* Hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--tinta);
+  color: #fff;
+}
+/* Fotos das cidades: ficam empilhadas e trocam com um esmaecimento suave.
+   No celular ficam atrás do texto, com camada azul. */
+.hero__slides { position: absolute; inset: 0; }
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--pos, 50% 50%);   /* enquadramento de cada foto (no HTML) */
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.hero__photo.is-active { opacity: 1; }
+
+/* Nome da cidade no canto da foto */
+.hero__caption {
+  position: absolute; z-index: 2;
+  right: var(--gutter); bottom: 18px;
+  display: flex; align-items: center; gap: 8px;
+}
+.hero__city {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(20,44,55,.72);
+  backdrop-filter: blur(4px);
+  color: #fff; font-size: .8rem; font-weight: 600; letter-spacing: .02em;
+}
+.hero__city::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--acento-claro); }
+.hero__pause {
+  display: grid; place-items: center;
+  width: 30px; height: 30px; padding: 0;
+  border: 1px solid rgba(255,255,255,.4); border-radius: 50%;
+  background: rgba(20,44,55,.72); color: #fff; font-size: .62rem; cursor: pointer;
+}
+.hero__pause[hidden] { display: none; }
+.hero__pause:hover { background: var(--tinta); }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(30,63,78,.80) 0%, rgba(30,63,78,.92) 100%);
+}
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  padding-block: 88px 96px;
+}
+.hero__title {
+  max-width: 14ch;
+  font-size: clamp(2.6rem, 7.5vw, 4.8rem);
+  font-weight: 800;
+}
+.hero__lead {
+  max-width: 48ch;
+  margin-top: 20px;
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  color: rgba(255,255,255,.8);
+}
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+
+/* Seções genéricas */
+.section { padding-block: var(--secao); }
+.section--alt { background: var(--fundo-alt); }
+.section--dark { background: var(--tinta); color: #fff; }
+.section__title { font-size: clamp(2.1rem, 5vw, 3rem); font-weight: 800; max-width: 22ch; }
+
+/* Sobre */
+.split { display: grid; gap: 28px; }
+.prose { display: grid; gap: 16px; font-size: 1.08rem; color: var(--texto-suave); }
+
+/* Fotos */
+.photo { margin: 40px 0 0; overflow: hidden; border-radius: var(--raio); background: var(--fundo-alt); }
+.photo img { display: block; width: 100%; height: auto; }
+.photo--wide img { aspect-ratio: 16 / 9; object-fit: cover; }
+
+/* Faixa de imagem */
+.band { position: relative; display: grid; align-items: end; min-height: 300px; overflow: hidden; color: #fff; }
+.band__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.82) contrast(1.04); }
+.band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,44,55,.1) 30%, rgba(20,44,55,.85) 100%); }
+.band__inner { position: relative; z-index: 1; padding-block: 40px; }
+.band__text { max-width: 26ch; font-size: clamp(1.4rem, 3.6vw, 2.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; }
+
+/* Serviços: foto em destaque (em cores, sem camada por cima) e lista em fileira.
+   Celular: foto em cima, lista embaixo. Computador: lista à esquerda e foto inteira à direita. */
+.svc-band { position: relative; overflow: hidden; background: var(--fundo-alt); }
+.svc-band__media { position: relative; aspect-ratio: 3 / 2; }
+
+.svc-band__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; }
+.svc-band__inner { position: relative; z-index: 1; padding-block: 48px var(--secao); }
+.svc-list { margin-top: 28px; counter-reset: svc; border-top: 1px solid var(--linha); }
+.svc-list li {
+  counter-increment: svc;
+  display: flex; align-items: baseline; gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--linha);
+  font-size: 1.02rem; font-weight: 600; color: var(--texto);
+}
+.svc-list li::before { content: counter(svc, decimal-leading-zero); flex: none; width: 2ch; font-family: var(--mono); font-size: .78rem; font-weight: 400; color: var(--acento); }
+.svc-band .link-arrow { margin-top: 24px; }
+
+/* Título e serviços de limpeza urbana acima do mapa */
+.map-block { margin: 0; }
+.map-intro__text { margin-top: 16px; max-width: 60ch; color: var(--texto-suave); }
+.map-intro__title { font-size: clamp(1.7rem, 3.4vw, 2.3rem); }
+.map-intro__list { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 14px; }
+.map-intro__list li { padding: 6px 14px; border: 1px solid var(--linha); border-radius: 999px; background: var(--fundo-alt); font-weight: 600; font-size: .9rem; }
+
+/* Mapa: figura central */
+.map-figure { margin: 0; border: 1px solid #C9D2D6; border-radius: var(--raio); overflow: hidden; background: #fff; display: grid; }
+.map-figure img { display: block; width: 100%; height: auto; }
+.map-figure__link { position: relative; display: block; }
+.map-figure__zoom { position: absolute; left: 10px; top: 10px; padding: 5px 10px; border-radius: var(--raio); background: rgba(30,63,78,.88); color: #fff; font-size: .75rem; font-weight: 700; }
+.map-figure__zoom::before { content: "⤢ "; }
+.map-figure__caption { padding: 9px 14px; border-top: 1px solid #C9D2D6; background: var(--fundo-alt); font-size: .76rem; color: var(--texto-suave); }
+
+/* Palco do mapa: mapa + 4 quadros.
+   Celular: mapa e quadros empilhados. Tablet: quadros em 2 colunas.
+   Computador: zooms à esquerda, mapa no meio, dimensionamento e aterro à direita. */
+.map-stage { position: relative; display: grid; gap: 16px; margin-top: 24px; }
+.map-card {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  box-shadow: 0 1px 2px rgba(20,44,55,.04);
+}
+.map-card__head { display: flex; align-items: center; gap: 10px; }
+.map-card__num {
+  flex: none; display: grid; place-items: center;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--tinta); color: #fff; font-size: .8rem; font-weight: 800;
+}
+.map-card__kicker { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--acento); }
+.map-card__title { font-size: 1.02rem; font-weight: 700; line-height: 1.25; }
+/* Padrão único dos 4 quadros: cabeçalho, "janela" 3:2 e rodapé de uma ou duas linhas */
+.map-card__img, .map-card__video, .dim {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 3 / 2;
+  border-radius: 3px; border: 1px solid var(--linha); background: var(--fundo-alt);
+}
+.map-card__img, .map-card__video { object-fit: cover; }
+.map-card__img { object-position: 50% 50%; }
+.map-card__foot { margin-top: auto; }
+.map-card__text { font-size: .85rem; line-height: 1.5; color: var(--texto-suave); }
+.map-card__legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .85rem; line-height: 1.5; color: var(--texto-suave); }
+.map-card__legend li { display: inline-flex; align-items: center; gap: 6px; }
+.map-card__legend span { width: 18px; height: 4px; border-radius: 2px; background: var(--cor); }
+.map-card__tag { display: inline-block; margin-right: 6px; padding: 1px 8px; border-radius: 999px; background: var(--fundo-alt); border: 1px solid var(--linha); font-size: .72rem; font-weight: 600; color: var(--texto-suave); }
+
+/* Quadro de dimensionamento: a tabela ocupa a mesma janela 3:2 dos outros quadros */
+.dim { display: grid; align-content: space-evenly; margin: 0; padding: 2px 14px; background: #fff; min-height: 0; overflow: hidden; } /* nunca passa da altura 3:2 */
+.dim > div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 3px 0; border-bottom: 1px dashed var(--linha); }
+.dim > div:last-child { border-bottom: 0; }
+.dim dt { font-size: .82rem; color: var(--texto-suave); }
+.dim dd { margin: 0; font-weight: 800; color: var(--tinta); text-align: right; white-space: nowrap; }
+.dim small { font-size: .7rem; font-weight: 500; color: var(--texto-suave); }
+@media (min-width: 1200px) and (max-width: 1599px) { .dim small { display: none; } } /* evita quebra de linha que desalinha os quadros */
+
+/* Linhas que ligam os zooms ao mapa (desenhadas pelo script.js) */
+.map-stage__lines { display: none; }
+
+/* Áreas de atuação */
+.areas { display: grid; gap: 1px; margin-top: 40px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.14); }
+.area { padding: 28px 24px; background: var(--tinta); }
+.area__index { display: block; margin-bottom: 20px; font-family: var(--mono); color: var(--acento-claro); }
+.area h3 { font-size: 1.35rem; font-weight: 700; }
+.area p { margin-top: 6px; color: rgba(255,255,255,.7); }
+
+/* Como trabalhamos */
+.steps { display: grid; gap: 28px; margin-top: 40px; counter-reset: etapa; }
+.step { position: relative; padding-left: 56px; counter-increment: etapa; }
+.step::before {
+  content: counter(etapa);
+  position: absolute;
+  left: 0; top: 0;
+  display: grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  border: 2px solid var(--marca);
+  border-radius: 50%;
+  font-weight: 800;
+  color: var(--marca);
+}
+.step h3 { font-size: 1.15rem; font-weight: 700; padding-top: 6px; }
+.step p { margin-top: 6px; color: var(--texto-suave); }
+
+/* Contato */
+.contact { display: grid; gap: 40px; }
+.contact__lead { margin-top: 16px; color: var(--texto-suave); max-width: 44ch; }
+.contact__list { display: grid; gap: 20px; margin: 32px 0 0; }
+.contact__list dt { font-family: var(--mono); font-size: 0.75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--texto-suave); }
+.contact__list dd { margin: 4px 0 0; font-weight: 600; }
+.contact__list dd a { overflow-wrap: anywhere; }
+
+.form {
+  display: grid;
+  gap: 18px;
+  padding: 28px 20px;
+  background: var(--fundo);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+}
+.form__row { display: grid; gap: 18px; }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 600; font-size: 0.92rem; }
+.field__opt { font-weight: 400; color: var(--texto-suave); }
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #B8C4CA;
+  border-radius: var(--raio);
+  font: inherit;
+  color: var(--texto);
+  background: #fff;
+}
+.field textarea { resize: vertical; }
+.field input:focus, .field textarea:focus { outline: 2px solid var(--marca); outline-offset: 0; border-color: var(--marca); }
+.field [aria-invalid="true"] { border-color: #B42318; }
+.field--check { grid-template-columns: auto 1fr; align-items: start; gap: 10px; }
+.field--check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--marca); }
+.field--check label { font-weight: 400; color: var(--texto-suave); }
+.form .btn { justify-self: start; }
+.form__status { font-weight: 600; }
+.form__status.is-error { color: #B42318; }
+.form__status.is-ok { color: #067647; }
+
+/* Footer */
+.footer { padding-block: 48px; background: var(--tinta); color: rgba(255,255,255,.7); font-size: 0.92rem; }
+.footer__inner { display: grid; gap: 20px; }
+.footer a { color: #fff; }
+.footer__copy { color: rgba(255,255,255,.5); }
+
+/* 6. RESPONSIVIDADE -------------------------------------------------------- */
+
+/* Tablet */
+@media (min-width: 720px) {
+  :root { --gutter: 32px; --secao: 96px; }
+
+
+  .areas { grid-template-columns: repeat(3, 1fr); }
+  .photo--wide img { aspect-ratio: 21 / 9; }
+  .band { min-height: 460px; }
+  .band__inner { padding-block: 64px; }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .form { padding: 36px; }
+  .form__row { grid-template-columns: 1fr 1fr; }
+
+  .map-stage { grid-template-columns: 1fr 1fr; }
+  .map-stage__map { grid-column: 1 / -1; justify-self: center; width: 100%; max-width: 620px; }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  :root { --header-h: 84px; }
+  .brand__logo { height: 60px; }
+
+  .nav-toggle { display: none; }
+  .nav { position: static; display: block; padding: 0; border: 0; background: none; }
+  .nav__list { display: flex; align-items: center; gap: 28px; }
+  .nav__list a:not(.btn) { padding: 0; border: 0; font-size: 0.95rem; }
+  .nav__list a:not(.btn):hover { color: var(--marca); }
+  .nav__list .btn { margin: 0; width: auto; }
+
+  .hero__inner { padding-block: 140px 150px; }
+
+  /* Computador: texto sobre o azul à esquerda, foto colorida na direita,
+     com uma transição suave entre os dois */
+  .hero__slides { left: 40%; width: 60%; }
+  .hero::after {
+    background:
+      linear-gradient(90deg, var(--tinta) 0%, var(--tinta) 40%, rgba(30,63,78,.55) 50%, rgba(30,63,78,0) 64%),
+      linear-gradient(0deg, rgba(30,63,78,.35) 0%, rgba(30,63,78,0) 30%);
+  }
+
+  .split { grid-template-columns: 5fr 6fr; gap: 64px; }
+  /* Serviços no computador: lista à esquerda, foto inteira à direita indo até a borda da tela.
+     Degradê só no canto de cima à esquerda (janela e parede), em forma de elipse, para a foto
+     "nascer" do fundo. Régua, lousa e legenda ficam 100% nítidas.
+     Para o degradê começar mais cedo, diminua o "70%"; para começar mais tarde, aumente. */
+  .svc-band { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); align-items: center; }
+  .svc-band__media { grid-column: 2; grid-row: 1; aspect-ratio: 3 / 2; }
+  .svc-band__photo {
+    /* dois degradês combinados: canto de cima à esquerda (elipse) e borda esquerda */
+    -webkit-mask-image: radial-gradient(ellipse 165% 150% at 100% 100%, #000 70%, rgba(0,0,0,.55) 83%, transparent 96%), linear-gradient(90deg, transparent 0%, #000 7%);
+    -webkit-mask-composite: source-in;
+            mask-image: radial-gradient(ellipse 165% 150% at 100% 100%, #000 70%, rgba(0,0,0,.55) 83%, transparent 96%), linear-gradient(90deg, transparent 0%, #000 7%);
+            mask-composite: intersect;
+  }
+
+
+  .svc-band__inner { grid-column: 1; grid-row: 1; width: 100%; max-width: calc(var(--container) * .44 + var(--gutter)); margin-left: auto; margin-right: 0; padding-block: var(--secao); padding-right: 40px; }
+
+
+  .area { padding: 40px 32px; }
+
+  /* Etapas em linha, conectadas por um traço */
+  .steps { grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .step { padding: 60px 0 0; }
+  .step::after {
+    content: "";
+    position: absolute;
+    top: 19px; left: 48px; right: -24px;
+    height: 2px;
+    background: var(--linha);
+  }
+  .step:last-child::after { display: none; }
+
+  .contact { grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }
+
+  .footer__inner { grid-template-columns: auto 1fr auto; align-items: center; gap: 40px; }
+}
+
+/* Telas largas: mapa no meio, zooms à esquerda (com linhas), quadros à direita.
+   O palco fica mais largo que o texto para o mapa ganhar tamanho. */
+@media (min-width: 1200px) {
+  .map-stage {
+    --largura: min(1680px, 100vw - 64px);
+    margin-inline: calc((100% - var(--largura)) / 2);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "coleta mapa dim" "varricao mapa aterro";
+    gap: 24px 40px;
+    margin-top: 32px;
+  }
+  .map-stage__map { grid-area: mapa; grid-column: auto; align-self: center; max-width: none; }
+  .map-card--coleta { grid-area: coleta; }
+  .map-card--varricao { grid-area: varricao; }
+  .map-card--dim { grid-area: dim; }
+  .map-card--aterro { grid-area: aterro; }
+  .map-stage__lines { display: block; position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+  .map-stage__lines line { stroke: var(--tinta); stroke-width: 1.5; stroke-dasharray: 5 4; }
+  .map-stage__lines circle { fill: var(--tinta); }
+}

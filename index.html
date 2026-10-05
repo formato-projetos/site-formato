@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formato Projetos e Consultoria | Planejamento técnico para a limpeza urbana</title>
+  <meta name="description" content="Planejamento técnico de coleta domiciliar e seletiva, varrição, capina e roçada: setorização, roteirização, dimensionamento e propostas técnicas. Sede em São Paulo.">
+  <meta name="theme-color" content="#13263A">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Formato Projetos e Consultoria | Planejamento técnico para a limpeza urbana">
+  <meta property="og:description" content="Setorização, roteirização e dimensionamento de coleta, varrição, capina e roçada para municípios.">
+  <meta property="og:url" content="https://www.gruponp.net/">
+
+  <link rel="icon" href="assets/icone-formato-2.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/manrope.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Formato Projetos e Consultoria",
+    "logo": "https://www.gruponp.net/assets/logo-formato.svg",
+    "url": "https://www.gruponp.net/",
+    "email": "comercial@gruponp.net",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Manuel de Morais, 177",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "postalCode": "04126-070",
+      "addressCountry": "BR"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="header" id="topo">
+    <div class="container header__inner">
+      <a class="brand" href="#topo" aria-label="Formato Projetos e Consultoria, página inicial">
+        <img class="brand__logo" src="assets/logo-formato.svg" width="230" height="63" alt="Formato Projetos e Consultoria">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="nav-toggle__bar"></span>
+        <span class="visually-hidden">Abrir menu</span>
+      </button>
+
+      <nav class="nav" id="menu" aria-label="Principal">
+        <ul class="nav__list">
+          <li><a href="#limpeza">Limpeza urbana</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#atuacao">Atuação</a></li>
+          <li><a href="#metodo">Como trabalhamos</a></li>
+          <li><a class="btn btn--small" href="#contato">Fale conosco</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <!-- Fotos do topo: trocam a cada 4 s (script.js, parte 7). Só a primeira carrega com a página;
+           as outras carregam depois, em segundo plano. Para trocar uma foto, substitua o arquivo
+           assets/img/topo-NOME.jpg mantendo o mesmo nome. Fotos do Pexels (licença Pexels):
+           Salvador · BA: Farol da Barra e orla de Salvador, vista aérea. Leonardo Dourado / Pexels
+           Rio de Janeiro · RJ: Enseada de Botafogo e Pão de Açúcar. Danilo Marcelino / Pexels
+           São Paulo · SP: Skyline de São Paulo à noite, visto do Ibirapuera. Kaique Rocha / Pexels
+           Curitiba · PR: Jardim Botânico de Curitiba, vista aérea. Leonardo Dourado / Pexels
+           Recife · PE: Orla de Boa Viagem, Recife, vista aérea. Alison Ferreira / Pexels -->
+      <div class="hero__slides">
+        <img class="hero__photo is-active" src="assets/img/topo-salvador.jpg" width="2000" height="1125" alt="" data-cidade="Salvador · BA" style="--pos: 38% 50%" fetchpriority="high" decoding="async">
+        <img class="hero__photo" data-src="assets/img/topo-rio-de-janeiro.jpg" width="1800" height="1202" alt="" data-cidade="Rio de Janeiro · RJ" style="--pos: 50% 55%" decoding="async">
+        <img class="hero__photo" data-src="assets/img/topo-sao-paulo.jpg" width="1800" height="1013" alt="" data-cidade="São Paulo · SP" style="--pos: 50% 60%" decoding="async">
+        <img class="hero__photo" data-src="assets/img/topo-curitiba.jpg" width="1800" height="1013" alt="" data-cidade="Curitiba · PR" style="--pos: 50% 40%" decoding="async">
+        <img class="hero__photo" data-src="assets/img/topo-recife.jpg" width="1800" height="1200" alt="" data-cidade="Recife · PE" style="--pos: 50% 70%" decoding="async">
+      </div>
+      <div class="hero__caption">
+        <p class="hero__city"><span class="visually-hidden">Foto: </span><span data-cidade-atual>Salvador · BA</span></p>
+        <button class="hero__pause" type="button" aria-pressed="false" aria-label="Pausar a troca de fotos" hidden>
+          <span aria-hidden="true">❚❚</span>
+        </button>
+      </div>
+
+      <div class="container hero__inner">
+        <p class="eyebrow eyebrow--light">Consultoria técnica · Limpeza urbana e resíduos sólidos</p>
+        <h1 id="hero-titulo" class="hero__title">Planejamento técnico para a limpeza urbana</h1>
+        <p class="hero__lead">
+          Setorização, roteirização e dimensionamento de coleta, varrição, capina e roçada,
+          com georreferenciamento e propostas técnicas para municípios e concessionárias.
+        </p>
+        <div class="hero__actions">
+          <a class="btn" href="#limpeza">O que planejamos</a>
+          <a class="btn btn--ghost" href="#contato">Fale conosco</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SOBRE -->
+    <section class="section section--alt" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Quem somos</p>
+          <h2 id="sobre-titulo" class="section__title">Conhecimento técnico por trás de cidades mais limpas</h2>
+        </div>
+        <div class="prose">
+          <p>
+            A Formato atua há mais de três décadas no desenvolvimento de projetos,
+            planejamento e consultoria para a área de limpeza urbana. Desde a fundação,
+            mantém sua sede no mesmo endereço, na Vila Mariana, em São Paulo.
+          </p>
+          <p>
+            Reunimos profissionais de diferentes áreas para transformar dados e
+            informações do território em planos, metodologias executivas e propostas
+            técnicas consistentes, com apoio de georreferenciamento e produção gráfica
+            especializada.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS: foto em destaque à esquerda (imagem enviada pela empresa), lista em fileira à direita,
+         no espírito da página de serviços do site antigo -->
+    <section class="svc-band" id="servicos" aria-labelledby="servicos-titulo">
+      <div class="svc-band__media">
+        <img class="svc-band__photo" src="assets/img/servicos.jpg" width="1535" height="1024"
+             alt="Mesa de trabalho com mapa de setores de coleta impresso, legenda dos setores, régua, lápis de cor, celular e um monitor exibindo o mesmo mapa" loading="lazy" decoding="async">
+      </div>
+      <div class="container svc-band__inner">
+        <div class="svc-band__text">
+          <p class="eyebrow">Serviços</p>
+          <h2 id="servicos-titulo" class="section__title">O que fazemos</h2>
+          <ol class="svc-list">
+          <li>Propostas Técnicas e Comerciais</li>
+          <li>Procedimentos de Manifestação de Interesse (PMI)</li>
+          <li>Tecnologias de Tratamento de Resíduos (PNRS)</li>
+          <li>Plano de Trabalho e Metodologia Operacional</li>
+          <li>Georreferenciamento de Dados e Mapas Temáticos</li>
+          <li>Planejamento e Dimensionamento</li>
+          <li>Soluções Gráficas</li>
+          </ol>
+          <a class="link-arrow" href="#contato">Fale com a Formato</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIMPEZA URBANA: mapa com os quatro quadros -->
+    <section class="section" aria-labelledby="limpeza-titulo">
+      <div class="container">
+        <!-- Limpeza urbana: o forte da empresa, apresentado junto com o mapa -->
+        <div class="map-block">
+        <div class="map-intro" id="limpeza">
+          <h2 id="limpeza-titulo" class="map-intro__title">Planejamentos e rotinas operacionais</h2>
+          <ul class="map-intro__list" aria-label="Serviços de limpeza urbana que planejamos">
+            <li>Coleta domiciliar</li><li>Coleta seletiva</li><li>Varrição</li><li>Capina e roçada</li>
+          </ul>
+          <p class="map-intro__text">
+            Todo plano começa pelo território. Na Mooca, como em qualquer município,
+            cada rua entra no cálculo: setores de coleta, circuitos de varrição,
+            equipes e frota, até o destino final do resíduo.
+          </p>
+        </div>
+
+        <!-- Mapa com quatro quadros: dois zooms à esquerda (ligados ao mapa por linhas
+             desenhadas no script.js, só no computador) e dois quadros à direita.
+             Ruas reais da Mooca, © OpenStreetMap contributors. Setores, circuitos e números: exemplo ilustrativo. -->
+        <div class="map-stage">
+          <figure class="map-figure map-stage__map" data-zonas="35.55,25.85,59.63,40.45;51.61,61.81,75.69,76.41">
+            <a class="map-figure__link" href="assets/img/mapa-mooca.svg" target="_blank" rel="noopener"><img src="assets/img/mapa-mooca.svg" width="900" height="1002" loading="lazy" decoding="async"
+                 alt="Mapa de ruas do distrito da Mooca, em São Paulo, com duas áreas destacadas: a área 1, ampliada no quadro de coleta, e a área 2, ampliada no quadro de varrição"><span class="map-figure__zoom">Ampliar mapa<span class="visually-hidden"> (abre em nova aba)</span></span></a>
+            <figcaption class="map-figure__caption">Distrito da Mooca, São Paulo · Mapa © OpenStreetMap contributors</figcaption>
+          </figure>
+
+          <article class="map-card map-card--coleta" data-zona="1">
+            <header class="map-card__head">
+              <span class="map-card__num" aria-hidden="true">1</span>
+              <div><p class="map-card__kicker">Zoom da área 1</p><h4 class="map-card__title">Coleta domiciliar</h4></div>
+            </header>
+            <img class="map-card__img" src="assets/img/mapa-zoom-coleta.svg" width="800" height="540" loading="lazy" decoding="async"
+                 alt="Trecho da Mooca com três setores de coleta destacados em cores, S01, S02 e S03">
+            <p class="map-card__text map-card__foot">Setorização: o bairro dividido em setores, cada um com seu dia, horário e equipe.</p>
+          </article>
+
+          <article class="map-card map-card--varricao" data-zona="2">
+            <header class="map-card__head">
+              <span class="map-card__num" aria-hidden="true">2</span>
+              <div><p class="map-card__kicker">Zoom da área 2</p><h4 class="map-card__title">Varrição</h4></div>
+            </header>
+            <img class="map-card__img" src="assets/img/mapa-zoom-varricao.svg" width="800" height="540" loading="lazy" decoding="async"
+                 alt="Trecho da Mooca com as ruas coloridas pela frequência da varrição: diária nas avenidas, alternada e semanal nas ruas locais">
+            <ul class="map-card__legend map-card__foot" aria-label="Frequência da varrição">
+              <li><span style="--cor:#C26A57"></span>Diária</li>
+              <li><span style="--cor:#D4A23F"></span>Alternada</li>
+              <li><span style="--cor:#417D95"></span>Semanal</li>
+            </ul>
+          </article>
+
+          <article class="map-card map-card--dim">
+            <header class="map-card__head">
+              <span class="map-card__num" aria-hidden="true">3</span>
+              <div><p class="map-card__kicker">Das áreas 1 e 2</p><h4 class="map-card__title">Dimensionamento</h4></div>
+            </header>
+            <!-- Números de exemplo, calculados para os recortes do mapa. Não são dados de um contrato real. -->
+            <dl class="dim">
+              <div><dt>Setores de coleta</dt><dd>3</dd></div>
+              <div><dt>Frequência da coleta</dt><dd>3× por semana</dd></div>
+              <div><dt>Caminhões compactadores</dt><dd>2</dd></div>
+              <div><dt>Equipes de coleta <small>(1 motorista + 3 coletores)</small></dt><dd>2</dd></div>
+              <div><dt>Vias para varrição</dt><dd>11,2 km</dd></div>
+              <div><dt>Varredores por turno</dt><dd>6</dd></div>
+            </dl>
+            <p class="map-card__text map-card__foot"><span class="map-card__tag">Exemplo ilustrativo</span>Frota e equipes calculadas para os recortes do mapa.</p>
+          </article>
+
+          <article class="map-card map-card--aterro">
+            <header class="map-card__head">
+              <span class="map-card__num" aria-hidden="true">4</span>
+              <div><p class="map-card__kicker">Destino final</p><h4 class="map-card__title">Aterros sanitários</h4></div>
+            </header>
+            <!-- Vídeo do aterro enviado pela empresa (comprimido para a web: 960 px, sem som). -->
+            <video class="map-card__video" muted loop playsinline preload="none" poster="assets/img/aterro-capa.jpg"
+                   width="960" height="540" aria-label="Vista aérea de um aterro sanitário com taludes gramados, lagoas e área administrativa">
+              <source src="assets/img/aterro.mp4" type="video/mp4">
+            </video>
+            <p class="map-card__text map-card__foot">O plano acompanha o resíduo até a destinação final ambientalmente adequada.</p>
+          </article>
+
+          <svg class="map-stage__lines" aria-hidden="true" focusable="false"></svg>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAIXA DE IMAGEM. Foto ilustrativa: zibik / Unsplash -->
+    <section class="band" aria-label="Planejamento que chega à rua">
+      <img class="band__photo" src="assets/img/faixa-coleta.jpg" width="1800" height="1200"
+           alt="Equipe de coleta recolhendo resíduos junto ao caminhão compactador em uma rua" loading="lazy" decoding="async">
+      <div class="container band__inner">
+        <p class="band__text">Do mapa para a rua: planejamento que vira rotina de coleta, varrição e limpeza.</p>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ATUAÇÃO -->
+    <section class="section section--dark" id="atuacao" aria-labelledby="atuacao-titulo">
+      <div class="container">
+        <p class="eyebrow eyebrow--light">Áreas de atuação</p>
+        <h2 id="atuacao-titulo" class="section__title">Onde atuamos</h2>
+        <ul class="areas">
+          <li class="area">
+            <span class="area__index" aria-hidden="true">A</span>
+            <h3>Engenharia Ambiental</h3>
+            <p>Gestão de resíduos sólidos.</p>
+          </li>
+          <li class="area">
+            <span class="area__index" aria-hidden="true">B</span>
+            <h3>Obras Civis</h3>
+            <p>Elaboração de propostas técnicas.</p>
+          </li>
+          <li class="area">
+            <span class="area__index" aria-hidden="true">C</span>
+            <h3>Apoio Técnico</h3>
+            <p>Apresentação de estudos e projetos.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- COMO TRABALHAMOS -->
+    <!-- PENDENTE: validar com a empresa se as etapas representam o processo real -->
+    <section class="section" id="metodo" aria-labelledby="metodo-titulo">
+      <div class="container">
+        <p class="eyebrow">Como trabalhamos</p>
+        <h2 id="metodo-titulo" class="section__title">Do dado ao documento técnico</h2>
+        <ol class="steps">
+          <li class="step">
+            <h3>Levantamento</h3>
+            <p>Coleta e organização das informações do município e dos serviços.</p>
+          </li>
+          <li class="step">
+            <h3>Georreferenciamento</h3>
+            <p>Os dados ganham localização: vias, setores e pontos no mapa.</p>
+          </li>
+          <li class="step">
+            <h3>Planejamento</h3>
+            <p>Dimensionamento de recursos e definição da metodologia operacional.</p>
+          </li>
+          <li class="step">
+            <h3>Documentação</h3>
+            <p>Planos, propostas e materiais gráficos prontos para apresentação.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="section section--alt" id="contato" aria-labelledby="contato-titulo">
+      <div class="container contact">
+        <div class="contact__info">
+          <p class="eyebrow">Contato</p>
+          <h2 id="contato-titulo" class="section__title">Fale com a Formato</h2>
+          <p class="contact__lead">Conte sobre o seu projeto ou município. Retornamos pelo contato informado.</p>
+
+          <dl class="contact__list">
+            <div>
+              <dt>E-mail</dt>
+              <dd><a href="mailto:comercial@gruponp.net">Comercial@formatoprojetos.com</a></dd>
+            </div>
+            <div>
+              <dt>Endereço</dt>
+              <dd>
+                <address>
+                  Rua Manuel de Morais, 177<br>
+                  Vila Mariana, São Paulo/SP<br>
+                  CEP 04126-070
+                </address>
+                <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Manuel+de+Morais+177+Vila+Mariana+Sao+Paulo" target="_blank" rel="noopener">Ver no mapa<span class="visually-hidden"> (abre em nova aba)</span></a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Formulário enviado pelo Netlify Forms (só funciona com o site publicado no Netlify).
+             As mensagens ficam no painel do Netlify e o aviso vai para o e-mail configurado lá,
+             em Site configuration > Forms > Form notifications. Nenhuma senha fica no código.
+             O campo "website" é uma armadilha para robôs de spam (fica escondido para pessoas). -->
+        <form class="form" name="contato" method="POST" data-netlify="true" netlify-honeypot="website" novalidate>
+          <input type="hidden" name="form-name" value="contato">
+          <p class="visually-hidden">
+            <label>Não preencha este campo: <input name="website" tabindex="-1" autocomplete="off"></label>
+          </p>
+
+          <div class="form__row">
+            <div class="field">
+              <label for="nome">Nome</label>
+              <input id="nome" name="nome" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="organizacao">Empresa ou órgão <span class="field__opt">(opcional)</span></label>
+              <input id="organizacao" name="organizacao" type="text" autocomplete="organization">
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="telefone">Telefone <span class="field__opt">(opcional)</span></label>
+              <input id="telefone" name="telefone" type="tel" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="cidade">Cidade <span class="field__opt">(opcional)</span></label>
+            <input id="cidade" name="cidade" type="text" autocomplete="address-level2">
+          </div>
+
+          <div class="field">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+          </div>
+
+          <div class="field field--check">
+            <input id="consentimento" name="consentimento" type="checkbox" required>
+            <label for="consentimento">
+              Autorizo o uso dos meus dados apenas para que a Formato responda a este contato.
+            </label>
+          </div>
+
+          <button class="btn" type="submit">Enviar mensagem</button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a class="brand brand--light" href="#topo" aria-label="Formato Projetos e Consultoria, voltar ao topo">
+        <img class="brand__logo" src="assets/logo-formato-clara.svg" width="230" height="63" alt="Formato Projetos e Consultoria" loading="lazy">
+      </a>
+      <p class="footer__text">
+        Rua Manuel de Morais, 177 · Vila Mariana · São Paulo/SP · CEP 04126-070<br>
+        <a href="mailto:comercial@gruponp.net">comercial@gruponp.net</a>
+      </p>
+      <p class="footer__copy">© <span data-ano>2026</span> Formato Projetos e Consultoria. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>

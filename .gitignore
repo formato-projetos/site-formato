@@ -1,0 +1,11 @@
+# Arquivos criados pelo sistema operacional
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Configurações pessoais do editor
+.vscode/
+
+# Pacotes de entrega e rascunhos (não fazem parte do site)
+*.zip
+_rascunhos/
